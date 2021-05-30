@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Rick and Morty Mousemove</title>
+</head>
+<body>
+    <section class="section-one">
+        <img src="images/1.png" class="layer" data-speed="6">
+        <img src="images/2.png" class="layer" data-speed="2">
+        <img src="images/3.png" class="layer" data-speed="5">
+        <img src="images/4.png" class="layer" data-speed="7">
+        <img src="images/5.png" class="layer" data-speed="9">
+        <img src="images/6.png" class="layer" data-speed="3">
+        <img src="images/7.png" class="layer" data-speed="4">
+        <img src="images/8.png" class="layer" data-speed="-5">
+        <h2 class="layer" data-speed="2">RICK AND MORTY <br> <span>PARALLAX MOUSEMOVE BY @IDSANTANDER</span></h2>
+    </section>
+
+    <script>
+      
+
+        document.addEventListener('mousemove',parallax);
+        function parallax(e){
+            document.querySelectorAll('.layer').forEach(layer => {
+                const speed = layer.getAttribute('data-speed');
+
+                const x = (e.pageX*speed/100);
+                const y = (e.pageY*speed/100);
+
+                layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        }
+    </script>
+</body>
+</html>
